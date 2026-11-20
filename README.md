@@ -23,9 +23,11 @@ npm start
 
 Run focused tests and the TypeScript check with `npm test` and `npm run typecheck`.
 
+Native builds and the physical-device restart, offline, and OS backup/restore checklist are documented in [native device testing](docs/native-device-testing-checklist.md). Expo Go does not validate the app's native backup rules.
+
 ## Data and privacy
 
-Journal entries are stored on the user's device in SQLite. Android app backups are disabled, and the iOS SQLite directory is excluded from device backups in builds generated from this project. These protections do not apply when running in Expo Go. The app does not require an account or cloud service, and journal content is not sent over the network. Each local calendar date has at most one saved entry; entries require at least three non-empty items and preserve item order.
+Journal entries are stored on the user's device in SQLite. The Android backup rules exclude the journal database, and the iOS SQLite directory is excluded from device backups in builds generated from this project. These protections do not apply when running in Expo Go. The app does not require an account or cloud service, and journal content is not sent over the network. Each local calendar date has at most one saved entry; entries require at least three non-empty items and preserve item order.
 
 ## Contributing
 
