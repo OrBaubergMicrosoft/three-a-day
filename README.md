@@ -1,6 +1,6 @@
 # Three a Day
 
-Three a Day is a planned gratitude-journaling app for recording at least three good things from each day.
+Three a Day is a gratitude-journaling app for recording at least three good things from each day.
 
 ## Prototype scope
 
@@ -8,17 +8,24 @@ Three a Day is a planned gratitude-journaling app for recording at least three g
 - At least three items per daily entry, with no maximum.
 - A way to create today's entry and browse previous entries.
 - On-device journal storage; no accounts or cloud sync in the prototype.
-- Optional daily local reminder at a user-selected time.
+- Daily local reminders at a user-selected time are planned for a later milestone.
 
-The project is currently in the planning stage; the app has not yet been scaffolded. The proposed prototype stack is Expo, React Native, and TypeScript, with Expo SQLite for entries and Expo Notifications for reminders. See the [implementation plan and public-release checklist](docs/implementation-plan-and-public-release-checklist.md) and the [roadmap](docs/roadmap.md).
+The prototype uses Expo, React Native, and TypeScript, with Expo SQLite for on-device entries. Reminders are planned for a later milestone. See the [implementation plan and public-release checklist](docs/implementation-plan-and-public-release-checklist.md) and the [roadmap](docs/roadmap.md).
 
 ## Development
 
-There is no runnable app or development command yet. The initial roadmap step is to scaffold the Expo app and verify it launches on iOS and Android.
+Install dependencies and start the Expo development server:
+
+```shell
+npm install
+npm start
+```
+
+Run focused tests and the TypeScript check with `npm test` and `npm run typecheck`.
 
 ## Data and privacy
 
-The prototype is intended to keep journal entries on the user's device. It will not require an account or cloud service. Review the privacy and store-readiness checklist before any public release.
+Journal entries are stored on the user's device in SQLite. Android app backups are disabled, and the iOS SQLite directory is excluded from device backups in builds generated from this project. These protections do not apply when running in Expo Go. The app does not require an account or cloud service, and journal content is not sent over the network. Each local calendar date has at most one saved entry; entries require at least three non-empty items and preserve item order.
 
 ## Contributing
 
