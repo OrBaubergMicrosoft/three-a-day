@@ -15,7 +15,7 @@ Build a personal-use app for iPhone and Android that lets someone save at least 
 
 ## Proposed implementation
 
-Use **Expo with React Native and TypeScript** to share the app across iOS and Android. Use **Expo SQLite** for local journal storage and **Expo Notifications** for scheduled local reminders. These choices keep the prototype cross-platform and avoid introducing a backend.
+Use **Expo with React Native and TypeScript** to share the app across iOS and Android. Use **Expo SQLite** for local journal storage. These choices keep the prototype cross-platform and avoid introducing a backend. Notifications remain a later milestone and are not part of the journal persistence issue.
 
 ### Data and behavior
 
@@ -23,6 +23,8 @@ Use **Expo with React Native and TypeScript** to share the app across iOS and An
 - Treat an entry as belonging to the device's local calendar day. Enforce at least three non-empty items when saving, and allow additional items.
 - Store reminder enabled/disabled state and the selected local time on-device. Ask for notification permission when the user enables reminders, explain why it is needed, and handle denial without blocking journaling.
 - Keep saved entries available offline. Do not send journal content or reminder settings to a service.
+- Enforce one saved entry per local calendar date. Saving the same date updates its ordered item list without creating a second entry.
+- Exclude the database from Android Auto Backup and the iOS device-backup process in native builds; Expo Go does not apply the app-specific backup configuration.
 
 ### Delivery steps
 
